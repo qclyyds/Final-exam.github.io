@@ -67,6 +67,13 @@
                     人工智能导论
                 </h2>
                 
+                <!-- 添加全选按钮 -->
+                <div class="mb-4 flex justify-end">
+                    <button id="select-all-btn" class="px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition flex items-center text-sm">
+                        <i class="fas fa-check-double mr-1"></i> 全选题型
+                    </button>
+                </div>
+                
                 <div class="question-types space-y-4">
                     <div class="flex items-center justify-between p-3 border rounded-lg">
                         <div class="flex items-center">
@@ -77,7 +84,7 @@
                         </div>
                         <div class="number-input flex items-center">
                             <span class="text-sm mr-2">数量：</span>
-                            <input type="number" id="count-single" class="type-count w-16 px-2 py-1 border rounded" min="1" value="3">
+                            <input type="number" id="count-single" class="type-count w-16 px-2 py-1 border rounded" min="1" value="5">
                             <span class="text-sm text-gray-500 ml-2" id="available-single">/ 可用：3题</span>
                         </div>
                     </div>
@@ -91,7 +98,7 @@
                         </div>
                         <div class="number-input flex items-center">
                             <span class="text-sm mr-2">数量：</span>
-                            <input type="number" id="count-multiple" class="type-count w-16 px-2 py-1 border rounded" min="1" value="3">
+                            <input type="number" id="count-multiple" class="type-count w-16 px-2 py-1 border rounded" min="1" value="5">
                             <span class="text-sm text-gray-500 ml-2" id="available-multiple">/ 可用：3题</span>
                         </div>
                     </div>
@@ -105,7 +112,7 @@
                         </div>
                         <div class="number-input flex items-center">
                             <span class="text-sm mr-2">数量：</span>
-                            <input type="number" id="count-boolean" class="type-count w-16 px-2 py-1 border rounded" min="1" value="3">
+                            <input type="number" id="count-boolean" class="type-count w-16 px-2 py-1 border rounded" min="1" value="5">
                             <span class="text-sm text-gray-500 ml-2" id="available-boolean">/ 可用：3题</span>
                         </div>
                     </div>
@@ -119,7 +126,7 @@
                         </div>
                         <div class="number-input flex items-center">
                             <span class="text-sm mr-2">数量：</span>
-                            <input type="number" id="count-fill" class="type-count w-16 px-2 py-1 border rounded" min="1" value="3">
+                            <input type="number" id="count-fill" class="type-count w-16 px-2 py-1 border rounded" min="1" value="5">
                             <span class="text-sm text-gray-500 ml-2" id="available-fill">/ 可用：3题</span>
                         </div>
                     </div>
