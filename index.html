@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人工智能导论 - 期末复习考试系统</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- 背景装饰 -->
+    <div class="decoration-circle decoration-circle-1"></div>
+    <div class="decoration-circle decoration-circle-2"></div>
+    <div class="decoration-circle decoration-circle-3"></div>
+    
+    <!-- 首页/选择科目页面 -->
+    <div id="start-page" class="container mx-auto px-4 py-8">
+        <header class="text-center mb-10">
+            <div class="logo-container mb-4">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap text-3xl text-blue-600"></i>
+                </div>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">期末复习考试系统</h1>
+            <p class="text-gray-600 max-w-lg mx-auto">选择科目开始模拟考试，检验你的学习成果</p>
+        </header>
+        
+        <main>
+            <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 class="text-xl font-semibold mb-4 text-blue-700 flex items-center">
+                    <i class="fas fa-book-open mr-2 text-blue-500"></i>
+                    可用科目
+                </h2>
+                <div id="subject-ai" class="subject-card bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500 hover:bg-blue-100 transition cursor-pointer mb-2">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="font-medium text-lg">人工智能导论</h3>
+                            <p class="text-sm text-gray-600">本科目包含单选题、多选题、判断题、填空题</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-blue-500"></i>
+                    </div>
+                </div>
+                <!-- 可以添加更多科目 -->
+            </div>
+        </main>
+    </div>
+    
+    <!-- 题型选择页面 -->
+    <div id="question-type-selection" class="container mx-auto px-4 py-8 hidden">
+        <header class="text-center mb-6">
+            <h1 class="text-2xl md:text-3xl font-bold text-blue-600 mb-2">选择题型</h1>
+            <p class="text-gray-600 max-w-lg mx-auto">请选择您想要练习的题型和数量</p>
+        </header>
+        
+        <main>
+            <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 id="selected-subject" class="text-xl font-semibold mb-4 text-blue-700 flex items-center">
+                    <i class="fas fa-clipboard-list mr-2 text-blue-500"></i>
+                    人工智能导论
+                </h2>
+                
+                <div class="question-types space-y-4">
+                    <div class="flex items-center justify-between p-3 border rounded-lg">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="type-single" value="single" class="question-type-checkbox w-5 h-5" checked>
+                            <label for="type-single" class="ml-2 cursor-pointer">
+                                单选题
+                            </label>
+                        </div>
+                        <div class="number-input flex items-center">
+                            <span class="text-sm mr-2">数量：</span>
+                            <input type="number" id="count-single" class="type-count w-16 px-2 py-1 border rounded" min="1" value="3">
+                            <span class="text-sm text-gray-500 ml-2" id="available-single">/ 可用：3题</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between p-3 border rounded-lg">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="type-multiple" value="multiple" class="question-type-checkbox w-5 h-5" checked>
+                            <label for="type-multiple" class="ml-2 cursor-pointer">
+                                多选题
+                            </label>
+                        </div>
+                        <div class="number-input flex items-center">
+                            <span class="text-sm mr-2">数量：</span>
+                            <input type="number" id="count-multiple" class="type-count w-16 px-2 py-1 border rounded" min="1" value="3">
+                            <span class="text-sm text-gray-500 ml-2" id="available-multiple">/ 可用：3题</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between p-3 border rounded-lg">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="type-boolean" value="boolean" class="question-type-checkbox w-5 h-5" checked>
+                            <label for="type-boolean" class="ml-2 cursor-pointer">
+                                判断题
+                            </label>
+                        </div>
+                        <div class="number-input flex items-center">
+                            <span class="text-sm mr-2">数量：</span>
+                            <input type="number" id="count-boolean" class="type-count w-16 px-2 py-1 border rounded" min="1" value="3">
+                            <span class="text-sm text-gray-500 ml-2" id="available-boolean">/ 可用：3题</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between p-3 border rounded-lg">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="type-fill" value="fill" class="question-type-checkbox w-5 h-5" checked>
+                            <label for="type-fill" class="ml-2 cursor-pointer">
+                                填空题
+                            </label>
+                        </div>
+                        <div class="number-input flex items-center">
+                            <span class="text-sm mr-2">数量：</span>
+                            <input type="number" id="count-fill" class="type-count w-16 px-2 py-1 border rounded" min="1" value="3">
+                            <span class="text-sm text-gray-500 ml-2" id="available-fill">/ 可用：3题</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 flex justify-between">
+                    <button id="back-to-subjects" class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition">
+                        <i class="fas fa-arrow-left mr-1"></i> 返回
+                    </button>
+                    <button id="start-exam-btn" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                        开始考试 <i class="fas fa-play ml-1"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 考试页面 -->
+    <div id="exam-page" class="container mx-auto px-4 py-6 hidden">
+        <header class="bg-white p-4 rounded-lg shadow-sm mb-6 sticky top-0 z-10">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <h1 class="text-xl font-bold text-blue-600 mb-2 md:mb-0 flex items-center">
+                    <i class="fas fa-brain text-blue-500 mr-2"></i>
+                    人工智能导论 - 模拟考试
+                </h1>
+                <div class="flex items-center space-x-4">
+                    <div class="timer bg-blue-50 px-3 py-1 rounded-md">
+                        <i class="far fa-clock text-blue-600 mr-1"></i>
+                        <span id="timer" class="font-medium">00:00</span>
+                    </div>
+                    <div class="progress text-sm bg-gray-50 px-3 py-1 rounded-md">
+                        已答: <span id="answered-count" class="font-medium text-blue-600">0</span>/<span id="total-questions" class="font-medium">0</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 进度条 -->
+            <div class="mt-4 w-full bg-gray-200 rounded-full h-2.5">
+                <div id="progress-bar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+            </div>
+        </header>
+
+        <main class="flex flex-col md:flex-row gap-6">
+            <!-- 左侧题目区 -->
+            <section class="question-area flex-grow bg-white p-6 rounded-lg shadow-md">
+                <div id="question-container" class="space-y-12">
+                    <!-- 题目内容将通过JS动态渲染 -->
+                </div>
+                
+                <div class="mt-8 flex justify-center">
+                    <button id="submit-exam" class="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition flex items-center">
+                        <i class="fas fa-paper-plane mr-2"></i> 交卷
+                    </button>
+                </div>
+            </section>
+
+            <!-- 右侧题号导航 -->
+            <aside class="question-nav w-full md:w-64 bg-white p-4 rounded-lg shadow-md h-fit sticky top-28">
+                <h3 class="font-medium mb-3 text-gray-700 flex items-center">
+                    <i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>
+                    题目导航
+                </h3>
+                <div id="question-nav-buttons" class="grid grid-cols-5 md:grid-cols-4 gap-2">
+                    <!-- 题号按钮将通过JS动态渲染 -->
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <!-- 结果页面 -->
+    <div id="result-page" class="container mx-auto px-4 py-8 hidden">
+        <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-6">
+            <div class="result-header text-center mb-8">
+                <div class="celebration-icon mb-4 text-4xl">
+                    <i class="fas fa-award text-yellow-500"></i>
+                </div>
+                <div id="score-animation" class="score-display mb-4">
+                    <div class="text-5xl font-bold text-blue-600">
+                        <span id="final-score">0</span>/<span id="total-score">100</span>
+                    </div>
+                </div>
+                <h2 class="text-2xl font-semibold" id="result-message">恭喜你完成了考试！</h2>
+                <p class="text-gray-600 mt-2">正确率: <span id="accuracy" class="font-medium">0%</span></p>
+                <div class="flex justify-center mt-4 space-x-4">
+                    <div class="stat-box bg-blue-50 px-4 py-2 rounded-lg">
+                        <i class="fas fa-check text-green-500 mr-1"></i>
+                        正确: <span id="correct-count" class="font-medium">0</span>
+                    </div>
+                    <div class="stat-box bg-blue-50 px-4 py-2 rounded-lg">
+                        <i class="fas fa-times text-red-500 mr-1"></i>
+                        错误: <span id="incorrect-count" class="font-medium">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-details mb-6">
+                <h3 class="text-lg font-medium mb-3 pb-2 border-b flex items-center">
+                    <i class="fas fa-clipboard-check text-blue-500 mr-2"></i>
+                    答题情况
+                </h3>
+                <!-- 添加题目筛选选项 -->
+                <div class="review-filter flex space-x-4 mb-4">
+                    <button class="review-filter-btn active px-3 py-1 rounded-full text-sm" data-filter="all">
+                        <i class="fas fa-list mr-1"></i> 全部题目
+                    </button>
+                    <button class="review-filter-btn px-3 py-1 rounded-full text-sm" data-filter="wrong">
+                        <i class="fas fa-times-circle mr-1"></i> 错题
+                    </button>
+                </div>
+                <div id="question-review-container">
+                    <!-- 题目回顾将通过JS动态渲染 -->
+                </div>
+            </div>
+
+            <div class="action-buttons flex justify-center space-x-4">
+                <button id="restart-exam" class="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition flex items-center">
+                    <i class="fas fa-redo mr-2"></i> 重新考试
+                </button>
+                <button id="wrong-questions-exam" class="px-6 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition flex items-center">
+                    <i class="fas fa-clipboard-list mr-2"></i> 错题重做
+                </button>
+                <button id="back-to-home" class="px-6 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition flex items-center">
+                    <i class="fas fa-home mr-2"></i> 返回首页
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // 添加调试代码
+        window.onerror = function(message, source, lineno, colno, error) {
+            console.error("JavaScript错误:", message, "在", source, "行:", lineno);
+            console.error("错误详情:", error);
+            alert("发生错误: " + message + "\n行号: " + lineno + "\n详情: " + (error ? error.stack : "无"));
+            return true;
+        };
+        
+        // 添加未捕获的Promise错误处理
+        window.addEventListener('unhandledrejection', function(event) {
+            console.error('未处理的Promise拒绝:', event.reason);
+            alert('Promise错误: ' + event.reason);
+        });
+        
+        // 添加控制台日志
+        console.log('页面加载开始...');
+    </script>
+    <script src="exam-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

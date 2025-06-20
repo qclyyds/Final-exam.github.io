@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>测试exam-data.js</title>
+</head>
+<body>
+    <h1>测试exam-data.js</h1>
+    <div id="result"></div>
+
+    <script>
+        window.onerror = function(message, source, lineno, colno, error) {
+            document.getElementById('result').innerHTML = 
+                '错误: ' + message + '<br>' +
+                '文件: ' + source + '<br>' +
+                '行号: ' + lineno + '<br>' +
+                '列号: ' + colno + '<br>' +
+                '详情: ' + (error ? error.stack : '无');
+            console.error("JavaScript错误:", message, "在", source, "行:", lineno);
+            return true;
+        };
+    </script>
+    <script src="exam-data.js"></script>
+    <script>
+        try {
+            document.getElementById('result').innerHTML += '<br>成功加载exam-data.js，数据结构:<br>' + 
+                JSON.stringify(examData).substring(0, 100) + '...';
+        } catch(e) {
+            document.getElementById('result').innerHTML += '<br>加载失败: ' + e.message;
+        }
+    </script>
+</body>
+</html> 
