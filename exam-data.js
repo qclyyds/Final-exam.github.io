@@ -248,13 +248,13 @@ window.examData = {
                 type: "single",
                 question: "（  _____ ）表示\"每个人都有喜欢的人\"。",
                 options: [
+                    "(∀x)(∀y)like(x,y)",
                     "(∀x)(∃y)like(x,y)",
-                    "(∃x)(∀y)like(x,y)",
-                    "(∀y)(∃x)like(x,y)",
-                    "(∃y)(∀x)like(x,y)"
+                    "(∃y)(∀x)like(x,y)",
+                    "(∃y)(∃x)like(x,y)"
                 ],
                 answer: 0,
-                explanation: "\"每个人都有喜欢的人\"可以表示为\"对于每一个x，存在一个y，使得x喜欢y\"，即(∀x)(∃y)like(x,y)。"
+                explanation: "\"每个人都有喜欢的人\"可以表示为\"对于每一个x，存在一个y，使得x喜欢y\"，即(∀x)(∀y)like(x,y)。"
             },
             {
                 id: 20,
@@ -903,7 +903,7 @@ window.examData = {
                 id: 2,
                 type: "fill",
                 question: "设有如下一组推理规则：\nR1：IF E2 AND E3 THEN E4 (0.7)\nR2: IF E4 THEN H (0.8)\nR3: IF E5 THEN H (0.9)\n且已知CF(E2)=0.3，CF(E3)=0.6，CF(E5)=0.7，那么CF(H)=（ ）要求保留小数点之后两位。",
-                answer: ["0.63"],
+                answer: ["0.69"],
                 explanation: "首先计算CF(E4) = 0.21（见上题）。然后通过R2得到CF1(H) = CF(R2) × CF(E4) = 0.8 × 0.21 = 0.168。通过R3得到CF2(H) = CF(R3) × CF(E5) = 0.9 × 0.7 = 0.63。当有多条规则支持同一结论时，取最大值，因此CF(H) = max[CF1(H), CF2(H)] = max[0.168, 0.63] = 0.63"
             },
             {
